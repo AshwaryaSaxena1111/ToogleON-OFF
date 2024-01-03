@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+div{
+    border-radius: 50px;
+    height: 40px;
+    width: 100px;
+    border: 2px solid black;
+    position: relative;
+}
+div::after{
+    content: " ";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 10px;
+    left: 6px;
+    border-radius: 100%;
+    border: 2px solid black;
+    background-image: url("sun.jpg");
+    background-size: cover;
+    transition: 1 s;
+}
+input{
+    display: none;
+}
+input:checked + div::after{
+    left: calc(100% - 28px);
+    background-image: url(moon.jpg);
+    background-size: cover;
+}
+input:checked + div{
+    background-color: rgb(114, 115, 116);
+}
+.on{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    position: absolute;
+    bottom: -12px;
+    left: 35px;
+    transform: translateX(-50%);
+    display: none;
+}
+.on + .on{
+    right: 0;
+    left: initial;
+    display: block;
+}
+input:checked + div > .on{
+    display: block;
+}
+input:checked + div > .on + .on{
+    display: none;
+}
